@@ -1,0 +1,5 @@
+/* Write your T-SQL query statement below */
+
+select distinct t.num ConsecutiveNums
+from Logs t , logs tt , logs ttt
+where tt.id - t.id = 1 and t.num = tt.num and ttt.id - t.id = 2 and ttt.num = t.num
