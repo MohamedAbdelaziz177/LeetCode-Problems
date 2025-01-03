@@ -1,0 +1,25 @@
+/* Write your T-SQL query statement below */
+
+with cte as
+(
+select customer_id, min(order_date) as dt
+from Delivery
+group by customer_id
+),
+
+cte2
+as
+(
+select count(*) as cc
+from cte join Delivery d
+on cte.customer_id = d.customer_id and dt = customer_pref_delivery_date
+)
+,
+
+cte3 as
+(
+    select count(distinct customer_id) as c from cte
+)
+
+select round(100.000 * cc / c, 2) as immediate_percentage
+from cte2 cross join cte3 
