@@ -1,0 +1,12 @@
+/* Write your T-SQL query statement below */
+
+
+select st.student_id student_id, st.student_name, sb.subject_name,
+(
+ select count(*) from examinations e
+ where e.student_id = st.student_id and sb.subject_name = e.subject_name
+) as attended_exams
+
+
+from  Students st cross join Subjects sb 
+order by student_id, subject_name
