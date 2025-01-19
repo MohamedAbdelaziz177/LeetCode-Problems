@@ -12,14 +12,20 @@
 class Solution {
 public:
     
-    vector<int>v;
+    TreeNode* t = NULL;
+    int mn = INT_MAX;
 
     void DFS(TreeNode* p){
 
         if(!p) return;
 
         DFS(p -> left);
-        v.push_back(p -> val);
+        if(!t) t = p;
+        else{
+
+            mn = min(mn, abs(p -> val - t -> val));
+            t = p;
+        }
         DFS(p -> right);
     }
 
@@ -27,11 +33,7 @@ public:
 
         DFS(root);
         
-        int mnDiff = INT_MAX;
-
-        for(int i = 1; i < v.size(); i++)
-        mnDiff = min(mnDiff, v[i] - v[i - 1]);
-
-        return mnDiff;
+      
+        return mn;
     }
 };
