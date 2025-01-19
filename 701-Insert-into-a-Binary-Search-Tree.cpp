@@ -14,30 +14,23 @@ public:
     
     void dfs(TreeNode* p, int val)
     {
-        if(!p -> left)
+        if(!p -> left && val < p -> val)
         {
-         if(val < p -> val)
-         {
             p -> left = new TreeNode(val);
             return;
-         }
         }
 
-        if(!p -> right)
+        if(!p -> right && val > p -> val)
         {
-            if(val > p -> val)
-         {
-             p -> right = new TreeNode(val);
+            p -> right = new TreeNode(val);
             return;
-         }
-
         }
 
 
         if(p -> left && val < p -> val)
         dfs(p -> left, val);
         
-        else 
+        
         
          if(p -> right && val > p -> val)
          dfs(p -> right, val);
