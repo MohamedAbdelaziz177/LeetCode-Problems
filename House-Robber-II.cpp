@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int>v;
-    long long dp[1000][1000];
+    long long dp[1000][2];
 
     int backtrack(int i, bool firstEleTaken)
     {
