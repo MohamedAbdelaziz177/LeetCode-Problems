@@ -3,7 +3,7 @@ public:
     int kthLargestValue(vector<vector<int>>& v, int k) {
 
         int n = v.size(), m = v[0].size();
-        priority_queue< int, vector<int>, greater<int> >pq;
+        priority_queue<int, vector<int>, greater<int> >pq;
 
         for(int i = 0; i < n; i++)
         {
