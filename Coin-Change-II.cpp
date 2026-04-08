@@ -13,7 +13,7 @@
 13        dp[0] = 1;
 14
 15       for (int j = 0; j < v.size(); j++){        
-16            for(int i = v[j]; i <= n; i++) {
+16            for(int i = 1; i <= n; i++) {
 17                if(i >= v[j])
 18                {
 19                    dp[i] += dp[i - v[j]];
